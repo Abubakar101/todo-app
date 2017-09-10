@@ -1,0 +1,21 @@
+<% include ../partials/top.ejs %>
+
+    <div class="infoContainer">
+        <div class="infoTitle"><b><%= data.title %></b></div>
+        <div class="infoStatus"><b>STATUS : <%= data.status %></b></div>
+        <div class="infoDescription"><p><%= data.description %></p></div>
+        <div class="buttons">
+            <div class="infoEditBtn"><a href="/todos/edit/<%= data.id%>">EDIT</a></div>
+            <form action="/todos/<%= data.id %>?_method=Delete" method="Post">
+                <button class="infoDelBtn">DEL</button>
+            </form>
+        </div>
+        <div class="buttons">
+            <a href="/todos/">
+                <div class="backBtn">&#8636; Back to List</div>
+             </a>
+        </div>
+    </div>
+
+
+<% include ../partials/bottom.ejs %>

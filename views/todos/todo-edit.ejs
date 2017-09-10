@@ -1,0 +1,20 @@
+<% include ../partials/top.ejs %>
+
+<form method='POST' action='/todos/<%= data.id %>?_method=PUT'>
+    <div class="addContainer">
+      <input class="userInfo" name='title' value="<%= data.title%>" type="text" >
+      <input class="userInfo" name='status' value="<%= data.status%>" type="hidden" >
+      <input class="userInfo" name='category' value="<%= data.category%>" type="text" >
+      <input class="userInfo" name='description' value="<%= data.description%>" type="text" >
+      <div class="buttons">
+        <button class="Submit" type='submit'>Update Item</button>
+      </div>
+        <div class="buttons">
+        <a href="/todos">
+  <div class="backBtn" >&#8636; Back to List</div>
+        </a>
+    </div>
+    </div>
+  </form>
+
+<% include ../partials/bottom.ejs %>

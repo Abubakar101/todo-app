@@ -1,0 +1,46 @@
+  
+  <% include ../partials/top.ejs %>
+
+<div class="todoListContainer">
+    <div class="buttons">
+    
+      <div class="addBtn"><a href="/todos/add">Add New Todo!</a></div>
+      
+    </div>
+
+<% for (let todo of data) { %>
+    <div class="toDoList">
+        <div class="topList">
+            <div id="title"><%= todo.title%></div>
+            <form action="/todos/<%= todo.id %>?_method=PUT " method="Post">
+                <input class="userInfo" name='title' value="<%= todo.title%>" type="hidden">
+                <input class="userInfo" name='category' value="<%= todo.category%>" type="hidden">
+                <input class="userInfo" name='description' value="<%= todo.description%>" type="hidden">
+                <% if(todo.status === "TO DO") { %>
+                    <input class="userInfo" name='status' value="DONE" type="hidden">
+                    <% } else { %>
+                        <input class="userInfo" name='status' value="TO DO" type="hidden">
+                        <% } %>
+                <button class="status" id="status" type="Submit"><%= todo.status%></button>
+            </form>
+            
+        </div>
+    
+
+    <div class="bottomList">
+        <div id="category"><%= todo.category%></div>
+        <div class="userOptions">
+            <button id="info"><a href='/todos/<%= todo.id%>'>INFO</a></button>
+            <button id="edit"><a href="/todos/edit/<%= todo.id%>">EDIT</a></button>
+
+            <form action="/todos/<%= todo.id %>?_method=Delete " method="Post">
+                <button id="del" type="Submit">DEL</button>
+            </form>
+        </div>
+    </div>
+</div>
+      <% } %>
+    
+</div>
+  <% include ../partials/bottom.ejs %>
+  

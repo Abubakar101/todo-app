@@ -1,0 +1,20 @@
+<% include ../partials/top.ejs %>
+
+<form method='POST' action='/todos'>
+    <div class="addContainer">
+      <input class="userInfo" name='title' placeholder="Title" type="text" required>
+      <input class="userInfo" name='status' type="hidden" value="TO DO">
+      <input class="userInfo" name='category' placeholder="Category" type="text" >
+      <input class="userInfo" name='description' placeholder="Description" type="text" >
+      <div class="buttons">
+        <button class="Submit" type='submit'>Add Item</button>
+      </div>
+        <div class="buttons">
+        <a href="/todos">
+  <div class="backBtn" >&#8636; Back to List</div>
+        </a>
+    </div>
+    </div>
+  </form>
+
+<% include ../partials/bottom.ejs %>
